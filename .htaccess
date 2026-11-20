@@ -1,0 +1,14 @@
+Options -Indexes
+DirectoryIndex index.php
+RewriteEngine On
+
+RewriteRule ^api(?:/.*)?$ api.php [QSA,L,NC]
+RewriteRule ^(login|index|resident|register)\.html$ page.php?page=$1.html [QSA,L,NC]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ public/$1 [L]
+
+<FilesMatch "^(api\.js|server\.js|store\.js|create-admin\.js|seed-demo\.js|package(-lock)?\.json|README\.md)$">
+  Require all denied
+</FilesMatch>

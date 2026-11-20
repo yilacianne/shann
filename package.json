@@ -1,0 +1,15 @@
+{
+  "name": "dormitory-management-system",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Dormitory management system with admin and resident portals",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "create-admin": "node create-admin.js",
+    "seed-demo": "node seed-demo.js",
+    "test": "node --test"
+  }
+}

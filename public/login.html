@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#3f1421">
+  <meta name="description" content="Sign in to the Dormitory Management System.">
+  <title>Sign in | Dormitory Management System</title>
+  <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="login-page">
+  <main class="login-shell">
+    <header class="login-hero">
+      <img src="assets/logo.jpg" width="96" height="96" alt="Fellowship Baptist College seal">
+      <h1>Dormitory<br>Management System</h1>
+      <p>Safe. Organized. Convenient.</p>
+    </header>
+
+    <section class="login-card" aria-label="Sign in">
+      <form class="stack" id="login-form" novalidate>
+        <label class="input-wrap">
+          <span data-icon="user"></span>
+          <input id="username" name="username" type="text" autocomplete="username" placeholder="Username or Student ID" aria-label="Username or Student ID" autocapitalize="none" spellcheck="false" required>
+        </label>
+        <label class="input-wrap">
+          <span data-icon="lock"></span>
+          <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Password" aria-label="Password" required>
+          <button class="eye" id="toggle-password" type="button" aria-label="Show password" aria-pressed="false"><span data-icon="eye"></span></button>
+        </label>
+        <label class="check"><input id="remember" type="checkbox"> Remember me on this device</label>
+        <button class="btn btn-primary btn-block" id="submit" type="submit">Login</button>
+        <p class="form-status" id="status" role="alert"></p>
+        <p class="login-note">Resident accounts are created by the administrator.</p>
+      </form>
+    </section>
+  </main>
+  <script src="common.js?v=20261117-payments1"></script>
+  <script src="login.js"></script>
+</body>
+</html>

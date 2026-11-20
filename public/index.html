@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#3f1421">
+  <title>Administrator | Dormitory Management System</title>
+  <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20261119-paymentforms5">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+</head>
+<body>
+<div class="app admin-app">
+  <aside class="sidebar" aria-label="Administrator sidebar">
+    <a class="sidebar-brand" href="#home" data-go="home">
+      <img src="assets/logo.jpg" width="40" height="40" alt="Fellowship Baptist College seal">
+      <span><strong>Dormitory</strong><small>Management System</small></span>
+    </a>
+    <p class="sidebar-label">Workspace</p>
+    <nav class="sidebar-nav" aria-label="Administrator navigation">
+      <button type="button" data-go="home" data-sidebar-link><span data-icon="home"></span>Dashboard</button>
+      <button type="button" data-go="rooms" data-sidebar-link><span data-icon="bed"></span>Rooms</button>
+      <button type="button" data-go="residents" data-sidebar-link><span data-icon="users"></span>Residents</button>
+      <button type="button" data-go="payments" data-sidebar-link><span data-icon="wallet"></span>Payments</button>
+      <button type="button" data-go="visitors" data-sidebar-link><span data-icon="card"></span>Visitors</button>
+      <button type="button" data-go="curfew" data-sidebar-link><span data-icon="clock"></span>Curfew Schedule</button>
+      <button type="button" data-go="announcements" data-sidebar-link><span data-icon="megaphone"></span>Announcements</button>
+      <button type="button" data-go="reports" data-sidebar-link><span data-icon="alert"></span>Resident reports</button>
+      <button type="button" data-go="more" data-sidebar-link><span data-icon="more"></span>More</button>
+    </nav>
+    <div class="sidebar-account">
+      <span class="desktop-avatar" id="desktop-user-avatar">AD</span>
+      <span><strong id="desktop-user-name">Administrator</strong><small id="desktop-user-meta">Admin portal</small></span>
+    </div>
+  </aside>
+  <header class="desktop-header">
+    <div class="desktop-header-actions">
+      <div class="theme-switch compact" role="group" aria-label="Color theme">
+        <button type="button" data-theme-choice="light" aria-pressed="false">Light</button>
+        <button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button>
+      </div>
+      <button class="icon-btn notification-trigger" type="button" data-go="notifications" aria-label="Notifications">
+        <span data-icon="bell"></span><span id="desktop-notification-count" class="notification-count" hidden></span>
+      </button>
+      <div class="desktop-profile"><span class="desktop-avatar" id="desktop-header-avatar">AD</span><strong id="desktop-header-name">Administrator</strong></div>
+    </div>
+  </header>
+  <section class="page" id="view-home" hidden>
+    <header class="topbar">
+      <button class="icon-btn" type="button" data-go="more" aria-label="Open menu"><span data-icon="menu"></span></button>
+      <div class="topbar-actions">
+        <div class="theme-switch compact" role="group" aria-label="Color theme">
+          <button type="button" data-theme-choice="light" aria-pressed="false">Light</button>
+          <button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button>
+        </div>
+      </div>
+      <button class="icon-btn notification-trigger" type="button" data-go="notifications" aria-label="Notifications"><span data-icon="bell"></span><span id="notification-count" class="notification-count" hidden></span></button>
+    </header>
+    <div class="hero">
+      <img src="assets/logo.jpg" width="64" height="64" alt="Fellowship Baptist College seal">
+      <div><h1>Dormitory<br>Management System</h1><p>Administrator Dashboard</p></div>
+    </div>
+    <div class="view" id="body-home"></div>
+  </section>
+
+  <section class="page" id="view-residents" hidden>
+    <header class="topbar sub"><button class="icon-btn" type="button" data-go="home" aria-label="Back to dashboard"><span data-icon="back"></span></button><h1>Resident Management</h1></header>
+    <div class="view" id="body-residents"></div>
+  </section>
+  <section class="page" id="view-admin-accounts" hidden>
+    <header class="topbar sub"><button class="icon-btn" type="button" data-go="more" aria-label="Back to menu"><span data-icon="back"></span></button><h1>Admin Accounts</h1><button class="icon-btn add" type="button" id="add-admin-account" aria-label="Add administrator"><span data-icon="plus"></span></button></header>
+    <div class="view" id="body-admin-accounts"></div>
+  </section>
+  <section class="page" id="view-payments" hidden>
+    <header class="topbar sub payment-topbar"><button class="icon-btn" type="button" data-go="home" aria-label="Back to dashboard"><span data-icon="back"></span></button><h1>Payment Monitoring</h1><button class="icon-btn add" type="button" id="add-payments" aria-label="Add payment"><span data-icon="plus"></span></button></header>
+    <div class="view" id="body-payments"></div>
+  </section>
+  <section class="page" id="view-announcements" hidden>
+    <header class="topbar sub"><button class="icon-btn" type="button" data-go="home" aria-label="Back to dashboard"><span data-icon="back"></span></button><h1>Announcements</h1><button class="icon-btn add" type="button" id="add-announcements" aria-label="Add announcement"><span data-icon="plus"></span></button></header>
+    <div class="view" id="body-announcements"></div>
+  </section>
+  <section class="page" id="view-reports" hidden>
+    <header class="topbar sub"><button class="icon-btn" type="button" data-go="home" aria-label="Back to dashboard"><span data-icon="back"></span></button><h1>Resident reports</h1><span class="icon-btn" aria-hidden="true"></span></header>
+    <div class="view" id="body-reports"></div>
+  </section>
+  <section class="page" id="view-reminders" hidden>
+    <header class="topbar sub"><button class="icon-btn" type="button" data-go="home" aria-label="Back to dashboard"><span data-icon="back"></span></button><h1>Reminders</h1><button class="icon-btn add" type="button" id="add-reminders" aria-label="Add reminder"><span data-icon="plus"></span></button></header>
+    <div class="view" id="body-reminders"></div>
+  </section>
+  <section class="page" id="view-visitors" hidden>
+    <header class="topbar sub"><button class="icon-btn" type="button" data-go="home" aria-label="Back to dashboard"><span data-icon="back"></span></button><h1>Visitor Log</h1><button class="icon-btn add" type="button" id="add-visitors" aria-label="Add visitor"><span data-icon="plus"></span></button></header>
+    <div class="view" id="body-visitors"></div>
+  </section>
+  <section class="page" id="view-notifications" hidden>
+    <header class="topbar sub"><button class="icon-btn" type="button" data-go="home" aria-label="Back to dashboard"><span data-icon="back"></span></button><h1>Notifications</h1><span class="icon-btn" aria-hidden="true"></span></header>
+    <div class="view" id="body-notifications"></div>
+  </section>
+  <section class="page" id="view-rooms" hidden>
+    <header class="topbar sub"><button class="icon-btn" type="button" data-go="home" aria-label="Back to dashboard"><span data-icon="back"></span></button><h1>Room Management</h1></header>
+    <div class="view" id="body-rooms"></div>
+  </section>
+  <section class="page" id="view-curfew" hidden>
+    <header class="topbar sub"><button class="icon-btn" type="button" data-go="home" aria-label="Back to dashboard"><span data-icon="back"></span></button><h1>Curfew Schedule</h1><span class="icon-btn" aria-hidden="true"></span></header>
+    <div class="view" id="body-curfew"></div>
+  </section>
+  <section class="page" id="view-more" hidden>
+    <header class="topbar sub"><button class="icon-btn" type="button" data-go="home" aria-label="Back to dashboard"><span data-icon="back"></span></button><h1>More</h1><span class="icon-btn" aria-hidden="true"></span></header>
+    <div class="view" id="body-more"></div>
+  </section>
+
+  <p class="footer">&copy; <span id="year">2026</span> Dormitory Management System</p>
+
+  <nav class="bottom-nav" aria-label="Administrator navigation">
+    <button class="nav-btn" type="button" data-go="home"><span data-icon="home"></span>Home</button>
+    <button class="nav-btn" type="button" data-go="residents"><span data-icon="users"></span>Residents</button>
+    <button class="nav-btn" type="button" data-go="payments"><span data-icon="wallet"></span>Payments</button>
+    <button class="nav-btn" type="button" data-go="more"><span data-icon="more"></span>More</button>
+  </nav>
+</div>
+<script src="common.js?v=20261119-advancepayments1"></script>
+<script src="app.js?v=20261119-downpayment1"></script>
+</body>
+</html>
